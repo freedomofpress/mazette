@@ -41,7 +41,7 @@ source.
 
 First you need to clone this repository. Then, we suggest
 [installing](https://docs.astral.sh/uv/getting-started/installation/) `uv`. Once
-you've installed `uv`, you can run the script with `./assets --help`. The
+you've installed `uv`, you can run the script with `./assets.py --help`. The
 installation of dependencies is handled internally by `uv`.
 
 ## Configuration
@@ -176,7 +176,7 @@ supports assets that are platform-agnostic using `platform.all`.
 Example:
 
 ```
-./assets lock
+./assets.py lock
 Processing 'asset1'
 Processing 'asset2'
 Lock file 'assets.lock' updated.
@@ -195,7 +195,7 @@ Examples:
 Install all assets for the current platform:
 
 ```
-./assets install
+./assets.py install
 Installing 'asset1'
 Installing 'asset2'
 Installed 2 assets.
@@ -204,7 +204,7 @@ Installed 2 assets.
 Install all assets for the provided platform:
 
 ```
-./assets install -p darwin/amd64
+./assets.py install -p darwin/amd64
 Installing 'asset3'
 Installed 1 assets.
 ```
@@ -212,7 +212,7 @@ Installed 1 assets.
 Install only specific assets:
 
 ```
-./assets install asset1
+./assets.py install asset1
 Installing 'asset1'
 Installed 1 assets.
 ```
@@ -226,7 +226,7 @@ its version, and its download URL.
 Example:
 
 ```
-./assets list
+./assets.py list
 asset1 0.0.1 https://github.com/owner/repo/releases/download/v0.0.1/asset1
 asset2 1.2.3 https://github.com/owner/other/releases/download/v0.0.1/asset2
 ```
