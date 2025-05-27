@@ -1,8 +1,16 @@
 # Assets
 
+The `assets` tool is a Python script designed to manage assets from GitHub
+releases. It expects a configuration file (in TOML format) that contains a list
+of assets and some parameters. Using this config file, it can query GitHub for
+release information, compute checksums for assets, update a lock file (JSON
+format) and install assets as described in the lock file.
+
+If you come from a Python background, think of it like "Poetry, but for GitHub
+assets".
+
 ## Table of Contents
 
-- [Overview](#overview)
 - [Installation](#installation)
 - [Configuration](#configuration)
   - [Examples](#examples)
@@ -22,17 +30,6 @@
 - [License](#license)
 
 ---
-
-## Overview
-
-The `assets` tool is a Python script designed to manage assets from GitHub
-releases. It expects a configuration file (in TOML format) that contains a list
-of assets and some parameters. Using this config file, it can query GitHub for
-release information, compute checksums for assets, update a lock file (JSON
-format) and install assets as described in the lock file.
-
-If you come from a Python background, think of it like "Poetry, but for GitHub
-assets".
 
 ## Installation
 
