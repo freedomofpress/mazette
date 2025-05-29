@@ -40,13 +40,13 @@ from colorama import Fore, Style
 from platformdirs import user_cache_dir
 
 # CONSTANTS
-CONFIG_FILE = Path("assets.toml")
+CONFIG_FILE = Path("mazette.toml")
 PYPROJECT_FILE = Path("pyproject.toml")
-LOCK_FILE = Path("assets.lock")
+LOCK_FILE = Path("mazette.lock")
 GITHUB_API_URL = "https://api.github.com"
 
 # Determine the cache directory using platformdirs
-CACHE_ROOT = Path(user_cache_dir("assets"))
+CACHE_ROOT = Path(user_cache_dir("mazette"))
 
 
 logger = logging.getLogger(__name__)
@@ -111,11 +111,11 @@ def report_error(verbose=False, fail=False):
 
 def read_config():
     """
-    Read the config for the assets tool, either from its own configuration file
-    (assets.toml) or a [tool.assets] section in pyproject.toml.
+    Read the config for the mazette tool, either from its own configuration file
+    (mazette.toml) or a [tool.mazette] section in pyproject.toml.
     """
     if CONFIG_FILE.exists():
-        # First, attempt to read the configuration from assets.toml.
+        # First, attempt to read the configuration from mazette.toml.
         try:
             return toml.loads(CONFIG_FILE.read_text())
         except Exception as e:
@@ -129,18 +129,18 @@ def read_config():
             msg = f"Could not load configuration file '{PYPROJECT_FILE}': {e}"
             raise AssetException(msg) from e
 
-        # If the pyproject.toml file does not have a [tool.assets] section, return an
+        # If the pyproject.toml file does not have a [tool.mazette] section, return an
         # error.
         try:
-            return config["tool"]["assets"]
+            return config["tool"]["mazette"]
         except KeyError:
             raise AssetException(
-                f"Missing a '[tool.assets]' section in {PYPROJECT_FILE} or"
+                f"Missing a '[tool.mazette]' section in {PYPROJECT_FILE} or"
                 f" a separate {CONFIG_FILE}"
             )
 
     raise AssetException(
-        f"Missing a {PYPROJECT_FILE} with a '[tool.assets]' or a separate"
+        f"Missing a {PYPROJECT_FILE} with a '[tool.mazette]' or a separate"
         f" {CONFIG_FILE}"
     )
 

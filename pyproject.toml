@@ -1,6 +1,6 @@
 [project]
-name = "assets"
-version = "0.1.0"
+name = "mazette"
+version = "0.2.0"
 description = "GitHub asset management with lock files and extensive configuration"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -13,4 +13,4 @@ dependencies = [
 ]
 
 [project.scripts]
-assets = "assets:main"
+mazette = "mazette:main"
