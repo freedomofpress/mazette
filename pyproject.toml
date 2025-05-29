@@ -1,7 +1,12 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "assets"
-version = "0.1.0"
+name = "mazette"
+version = "0.2.0"
 description = "GitHub asset management with lock files and extensive configuration"
+authors = [{ name = "Freedom of the Press Foundation", email = "info@freedom.press" }]
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
@@ -11,6 +16,12 @@ dependencies = [
  "semver>=3.0.4",
  "toml>=0.10.2",
 ]
+keywords = [
+  "github", "assets", "packaging"
+]
 
 [project.scripts]
-assets = "assets:main"
+mazette = "mazette:main"
+
+[project.urls]
+Repository = "https://github.com/freedomofpress/mazette"

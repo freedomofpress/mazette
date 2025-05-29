@@ -1,6 +1,6 @@
-# Assets
+# Mazette
 
-The `assets` tool is a Python script designed to manage assets from GitHub
+The `mazette` tool is a Python script designed to manage assets from GitHub
 releases. It expects a configuration file (in TOML format) that contains a list
 of assets and some parameters. Using this config file, it can query GitHub for
 release information, compute checksums for assets, update a lock file (JSON
@@ -38,16 +38,16 @@ source.
 
 First you need to clone this repository. Then, we suggest
 [installing](https://docs.astral.sh/uv/getting-started/installation/) `uv`. Once
-you've installed `uv`, you can run the script with `./assets.py --help`. The
+you've installed `uv`, you can run the script with `./mazette.py --help`. The
 installation of dependencies is handled internally by `uv`.
 
 ## Configuration
 
 Before you begin working with the script, you must create a configuration file
 in one of the following locations of your project:
-* `assets.toml`: This is a config file written specifically for this tool.
+* `mazette.toml`: This is a config file written specifically for this tool.
 * `pyproject.toml`: This is a config file written for a Python project. The
-  assets tool expects a `[tool.assets]` section in this file.
+  mazette tool expects a `[tool.mazette]` section in this file.
 
 ### Examples
 
@@ -66,7 +66,7 @@ extract = false
 ```
 
 If you are using `pyproject.toml` as a config file, then you need to prepend
-`tool.assets` to the section name, e.g., `[tool.assets.asset.example]`.
+`tool.mazette` to the section name, e.g., `[tool.mazette.asset.example]`.
 
 ### `repo`
 
@@ -154,7 +154,7 @@ destination root. By default the file hierarchy in the archive is preserved.
 
 ## Commands
 
-The assets script supports three commands:
+The mazette script supports three commands:
 - `lock`
 - `install`
 - `list`
@@ -164,7 +164,7 @@ The following sections assume you invoke the script with `poetry run`.
 ### `lock`
 
 The `lock` command updates the lock file based on the configuration defined in
-`pyproject.toml` / `assets.toml`. For each asset, it reads its details,
+`pyproject.toml` / `mazette.toml`. For each asset, it reads its details,
 queries GitHub to find the appropriate release and asset URL, computes a
 checksum if the asset is available locally, uses caching for fetching and
 hashing, renders filenames that contain the `{version}` template string, and
@@ -173,10 +173,10 @@ supports assets that are platform-agnostic using `platform.all`.
 Example:
 
 ```
-./assets.py lock
+./mazette.py lock
 Processing 'asset1'
 Processing 'asset2'
-Lock file 'assets.lock' updated.
+Lock file 'mazette.lock' updated.
 ```
 
 ### `install`
@@ -192,7 +192,7 @@ Examples:
 Install all assets for the current platform:
 
 ```
-./assets.py install
+./mazette.py install
 Installing 'asset1'
 Installing 'asset2'
 Installed 2 assets.
@@ -201,7 +201,7 @@ Installed 2 assets.
 Install all assets for the provided platform:
 
 ```
-./assets.py install -p darwin/amd64
+./mazette.py install -p darwin/amd64
 Installing 'asset3'
 Installed 1 assets.
 ```
@@ -209,7 +209,7 @@ Installed 1 assets.
 Install only specific assets:
 
 ```
-./assets.py install asset1
+./mazette.py install asset1
 Installing 'asset1'
 Installed 1 assets.
 ```
@@ -223,7 +223,7 @@ its version, and its download URL.
 Example:
 
 ```
-./assets.py list
+./mazette.py list
 asset1 0.0.1 https://github.com/owner/repo/releases/download/v0.0.1/asset1
 asset2 1.2.3 https://github.com/owner/other/releases/download/v0.0.1/asset2
 ```
@@ -249,7 +249,7 @@ Each command supports the following optional arguments:
 
 ## License
 
-The assets tool is licensed under either of:
+The mazette tool is licensed under either of:
 
 * Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or https://www.apache.org/licenses/LICENSE-2.0)
 * MIT license ([LICENSE-MIT](LICENSE-MIT) or https://opensource.org/licenses/MIT)
