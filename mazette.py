@@ -635,9 +635,10 @@ def install_asset(name, platform, asset_dict):
         logger.debug(f"Copying asset '{name}' to '{asset.destination}'")
         asset.destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(cached_file, asset.destination)
-        if asset.executable:
-            logger.debug(f"Marking '{asset.destination}' as executable")
-            chmod_exec(asset.destination)
+    # If the destination should be executable.
+    if asset.executable:
+        logger.debug(f"Marking '{asset.destination}' as executable")
+        chmod_exec(asset.destination)
 
 
 # COMMAND FUNCTIONS
