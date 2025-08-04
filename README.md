@@ -33,13 +33,16 @@ assets".
 
 ## Installation
 
-The script is not currently pushed to PyPI, so you need to work with it from
-source.
+```
+python -m pip install mazette
+```
 
-First you need to clone this repository. Then, we suggest
-[installing](https://docs.astral.sh/uv/getting-started/installation/) `uv`. Once
-you've installed `uv`, you can run the script with `./mazette.py --help`. The
-installation of dependencies is handled internally by `uv`.
+Alternatively, you can run it directly with
+[`uvx`](https://docs.astral.sh/uv/guides/tools/#running-tools):
+
+```
+uvx mazette --help
+```
 
 ## Configuration
 
