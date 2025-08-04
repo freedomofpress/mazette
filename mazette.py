@@ -628,7 +628,6 @@ def install_asset(name, platform, asset_dict):
     if asset.extract:
         logger.debug(f"Extracting asset '{name}' to '{asset.destination}'")
         asset.destination.mkdir(parents=True, exist_ok=True)
-        filename = asset.download_url.split("/")[-1]
         extract_asset(
             cached_file, asset.destination, **dataclasses.asdict(asset.extract)
         )
