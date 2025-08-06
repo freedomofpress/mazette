@@ -1,14 +1,5 @@
-#!/usr/bin/env -S uv run --script
-# /// script
-# requires-python = ">=3.9"
-# dependencies = [
-#     "colorama",
-#     "platformdirs",
-#     "requests",
-#     "semver",
-#     "toml",
-# ]
-# ///
+#!/usr/bin/env python3
+
 """
 GitHub assets management
 
