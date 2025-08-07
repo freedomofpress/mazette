@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mazette"
-version = "0.2.0"
+version = "0.2.1"
 description = "GitHub asset management with lock files and extensive configuration"
 authors = [{ name = "Freedom of the Press Foundation", email = "info@freedom.press" }]
 readme = "README.md"

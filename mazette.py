@@ -1,14 +1,5 @@
-#!/usr/bin/env -S uv run --script
-# /// script
-# requires-python = ">=3.9"
-# dependencies = [
-#     "colorama",
-#     "platformdirs",
-#     "requests",
-#     "semver",
-#     "toml",
-# ]
-# ///
+#!/usr/bin/env python3
+
 """
 GitHub assets management
 
@@ -628,7 +619,6 @@ def install_asset(name, platform, asset_dict):
     if asset.extract:
         logger.debug(f"Extracting asset '{name}' to '{asset.destination}'")
         asset.destination.mkdir(parents=True, exist_ok=True)
-        filename = asset.download_url.split("/")[-1]
         extract_asset(
             cached_file, asset.destination, **dataclasses.asdict(asset.extract)
         )
@@ -636,9 +626,10 @@ def install_asset(name, platform, asset_dict):
         logger.debug(f"Copying asset '{name}' to '{asset.destination}'")
         asset.destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(cached_file, asset.destination)
-        if asset.executable:
-            logger.debug(f"Marking '{asset.destination}' as executable")
-            chmod_exec(asset.destination)
+    # If the destination should be executable.
+    if asset.executable:
+        logger.debug(f"Marking '{asset.destination}' as executable")
+        chmod_exec(asset.destination)
 
 
 # COMMAND FUNCTIONS
